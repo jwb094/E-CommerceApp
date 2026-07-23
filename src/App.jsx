@@ -1,122 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useState } from "react";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import CartModal from "./components/Cart/CartModal";
+import BillingForm from "./components/Checkout/BillingForm";
+import OrderSummary from "./components/Checkout/OrderSummary";
+import PaymentForm from "./components/Checkout/PaymentForm";
+import ShippingForm from "./components/Checkout/ShippingForm";
 
+import ContactUs from "./components/Contact/ContactUs";
+import Newsletter from "./components/Contact/Newsletter";
+
+import ProductGallery from "./components/ProductDetails/ProductGallery";
+import RelatedProducts from "./components/ProductDetails/RelatedProducts";
+import ReviewCard from "./components/ProductDetails/ReviewCard";
+
+import Filters from "./components/ShopComponents/Filters";
+import GridDisplay from "./components/ShopComponents/GridDisplay";
+import ListDisplay from "./components/ShopComponents/ListDisplay";
+import Pagination from "./components/ShopComponents/Pagination";
+import ProductCard from "./components/ShopComponents/ProductCard";
+import ProductList from "./components/ShopComponents/ProductList";
+import SearchBar from "./components/ShopComponents/SearchBar";
+import SortDropdown from "./components/ShopComponents/SortDropdown";
+
+import AddressCard from "./components/User/AddressCard";
+import LoginForm from "./components/User/LoginForm";
+import OrderCard from "./components/User/OrderCard";
+import ProfileCard from "./components/User/ProfileCard";
+import RegisterForm from "./components/User/RegisterForm";
+import WishlistCard from "./components/User/WishlistCard";
+
+import Tabs from "./components/Tabs";
+import PageLoader from "./components/PageLoader";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <Header></Header>
+      <CartModal></CartModal>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <BillingForm></BillingForm>
+      <OrderSummary></OrderSummary>
+      <PaymentForm></PaymentForm>
+      <ShippingForm></ShippingForm>
+      <ContactUs></ContactUs>
+      <Newsletter></Newsletter>
+      <ProductGallery></ProductGallery>
+      <RelatedProducts></RelatedProducts>
+      <ReviewCard></ReviewCard>
+      <Filters></Filters>
+      <GridDisplay></GridDisplay>
+      <ListDisplay></ListDisplay>
+      <Pagination></Pagination>
+      <ProductCard></ProductCard>
+      <ProductList></ProductList>
+      <SearchBar></SearchBar>
+      <SortDropdown></SortDropdown>
+      <AddressCard></AddressCard>
+      <LoginForm></LoginForm>
+      <OrderCard></OrderCard>
+      <ProfileCard></ProfileCard>
+      <RegisterForm></RegisterForm>
+      <WishlistCard></WishlistCard>
+      <PageLoader></PageLoader>
+      <Tabs></Tabs>
+      <Footer></Footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
