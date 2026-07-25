@@ -6,9 +6,37 @@ function ShippingForm(props) {
       data-template="ShippingForm"
       data-view="default"
       className="c-shipping-form"
-    >
+    > 
+    <div className="container">
+      <form class="mt-8 mb-2 w-8/12 max-w-screen-lg ">
+            <div class="relative flex flex-col items-center rounded-xl bg-transparent">
+
+      <div className="c-shipping-form__billing_address">
+        <div class="inline-flex items-center">
+  <label class="flex items-center cursor-pointer relative" for="check-same-as-billing-address">
+    <input type="checkbox"
+      checked
+      class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+      id="check-same-as-billing-address" />
+    <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+        stroke="currentColor" stroke-width="1">
+        <path fill-rule="evenodd"
+        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+        clip-rule="evenodd"></path>
+      </svg>
+    </span>
+  </label>
+  <label class="cursor-pointer ml-2 text-slate-600 text-sm" for="check-same-as-billing-address">
+    Same As Billing Adress
+  </label>
+</div>
+      </div>
+            </div>
+      </form>
+    </div>
       <div className="container">
-        <div className="c-shipping-form |">
+        <div className="c-shipping-form__new_Address |">
           <div class="relative flex flex-col items-center rounded-xl bg-transparent">
             <h4 class="block text-xl font-medium text-slate-800">
               Shipping Info
@@ -35,6 +63,18 @@ function ShippingForm(props) {
                     type="text"
                     class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                     placeholder="Your Name"
+                  />
+                </div>
+                   <div class="w-full">
+                  <label class="block mb-2 text-sm text-slate-600"
+                  htmlFor="address_line_1">
+                    Address Line 1
+                  </label>
+                  <input
+                  id="address_line_1"
+                    type="text"
+                    class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                    placeholder="Your Email"
                   />
                 </div>
                 <div class="w-full">
