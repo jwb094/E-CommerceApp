@@ -1,12 +1,22 @@
-
-import React from 'react';
+import React from "react";
+import ProductRectangle from "./ProductCard/ProductRectangle";
 
 function ListDisplay(props) {
-    return (
-        <div>
-            
+  let productsToBeDisplayed = [];
+
+  for (let index = 0; index < 12; index++) {
+    productsToBeDisplayed.push(<ProductRectangle key={index}></ProductRectangle>);
+  }
+
+  return (
+    <section data-template="display" data-view="List" className="c-listView">
+      <div className="container">
+        <div class="flex flex-col gap-y-12">
+          {productsToBeDisplayed}
         </div>
-    );
+      </div>
+    </section>
+  );
 }
 
-export default ListDisplay;r
+export default ListDisplay;
