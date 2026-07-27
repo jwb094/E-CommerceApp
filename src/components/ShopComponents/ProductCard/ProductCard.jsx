@@ -2,6 +2,10 @@ import React from "react";
 import { StarIcon, Wishlist } from "../../../assets/Icons";
 import Button from "../../Button";
 function ProductCard(props) {
+
+  //logic - add product to Wishlist 
+  //logic - add Product to Cart
+  // logic add href to Product details page
   let rating = [];
   for (let index = 0; index < 5; index++) {
     rating.push(<StarIcon width={12} height={12} />);
@@ -13,9 +17,7 @@ function ProductCard(props) {
       className="c=product-card"
     >
       <div className="conatiner">
-        <div
-          className="c-productCard-bloc | 
-                bg-white rounded-2xl shadow-2xl md:space-y-0 md:space-x1-10 md:m-0 md:p-8 w-1/2 md:w-max"
+        <div className="c-productCard-bloc | w-10/12 my-0 mx-auto bg-white rounded-2xl shadow-2xl md:space-y-0 md:space-x1-10 md:m-0 md:p-8 w-1/2 md:w-max"
         >
           <div className="c-productCard-bloc-Content | flex flex-col ">
             <div className="c-productCard-bloc-Content-Media p-6 md:p-0">
@@ -54,7 +56,7 @@ function ProductCard(props) {
                   </button>
                 </div>
               </div>
-              <div className="buttons flex flex-row justify-between">
+              <div className="buttons flex flex-row justify-between mb-6">
                 {/* OnClick - UseReducer Add To Cart */}
                 <Button title={"Add To Cart"}></Button>
                 <a

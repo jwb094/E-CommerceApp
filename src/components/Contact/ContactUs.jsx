@@ -1,6 +1,9 @@
 import React from "react";
 
 function ContactUs(props) {
+
+  //Logic - States for Forms 
+  //logic - functions for handle sumbit , validate form, reset form values
   return (
     <section
       data-template="Form"
