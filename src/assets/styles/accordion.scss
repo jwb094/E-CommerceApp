@@ -1,0 +1,22 @@
+.c-accordion {
+  details {
+    > summary {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &[open] summary:after {
+      content: " -";
+      font-size: 2rem;
+    }
+  }
+  summary {
+    &::after {
+      content: "+";
+      font-size: 2rem;
+    }
+  }
+  p {
+  }
+}
