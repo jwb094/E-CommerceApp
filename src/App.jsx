@@ -43,7 +43,7 @@ function App() {
       <Header></Header>
       <h1 className="py-12">Breadcrumbs</h1>
       <Breadcrumbs></Breadcrumbs>
-   <h1 className="py-12">CartModal</h1>
+      <h1 className="py-12">CartModal</h1>
       <CartModal></CartModal>
       <h1 className="py-12">BillingForm</h1>
       <BillingForm></BillingForm>
@@ -62,6 +62,7 @@ function App() {
 
       <h1 className="py-12">Accordion</h1>
       <Accordion></Accordion>
+            <h1 className="py-24">ProductGallery</h1>
       <ProductGallery></ProductGallery>
       <h1 className="py-12">RelatedProducts</h1>
       <RelatedProducts></RelatedProducts>
