@@ -170,7 +170,7 @@ export const HambugerIcon = (props) => {
       width={props.width}
       height={props.height}
       fill="currentColor"
-      class="bi bi-list"
+      className="bi bi-list"
       viewBox="0 0 16 16"
     >
       <path
