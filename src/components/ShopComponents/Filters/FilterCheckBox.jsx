@@ -1,6 +1,8 @@
 import React from 'react';
+import { useFilterContext } from '../../../context/Filters';
 
 function FilterCheckBox({ id,label,category }) {
+    const {filters,setFilter,handleCheckboxChange} = useFilterContext();
     return (
      <div
       role="button"
@@ -20,8 +22,8 @@ function FilterCheckBox({ id,label,category }) {
               className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
               id={label}
               value={label}
-              //checked={filters?.[category].includes(id)}
-            //   onChange={() => handleCheckboxChange(category, id)}
+                checked={filters?.[category].includes(id)}
+               onChange={() => handleCheckboxChange(category, id)}
             />
             <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <svg
