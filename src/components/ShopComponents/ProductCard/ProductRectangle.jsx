@@ -26,24 +26,24 @@ function ProductRectangle(props) {
             </div>
 
             <div className="Content  py-0 px-0 flex flex-col gap-y-2 ">
-              <div className=" flex gap-x-1 hidden md:flex">
+              {/* <div className=" flex gap-x-1 hidden md:flex">
                 <p className="bg-black rounded-full text-white text-sm py-1 px-3">
                   Best Seller
                 </p>
                 <p className="bg-black rounded-full text-white text-sm py-1 px-3">
                   Top 5 in X Cat
                 </p>
-              </div>
+              </div> */}
 
               <div className="c-productCard-bloc-Content-Product">
                 <h5 className="max-s-sm text-2xl  font-medium ">
-                  Product Title
+                    {props.data.name}
                 </h5>
-                <p className="text-3xl">£23.99</p>
+                <p className="text-3xl">£{props.data.price}</p>
               </div>
               <div className="rating | flex flex-row gap-x-1 items-center">
                 <small className="flex flex-row items-center">
-                  {rating} (24)
+                  {rating} ({props.data.review_count})
                 </small>
                 <div>
                   <button>

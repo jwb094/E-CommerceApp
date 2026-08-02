@@ -17,7 +17,7 @@ function ProductCard(props) {
       className="c=product-card"
     >
       <div className="conatiner">
-        <div className="c-productCard-bloc | w-10/12 my-0 mx-auto bg-white rounded-2xl shadow-2xl md:space-y-0 md:space-x1-10 md:m-0 md:p-8 w-1/2 md:w-max"
+        <div className="c-productCard-bloc | my-0 mx-auto bg-white rounded-2xl shadow-2xl md:space-y-0 md:space-x1-10 md:m-0 md:p-8 w-10/12 md:min-w-72 h-11/12"
         >
           <div className="c-productCard-bloc-Content | flex flex-col ">
             <div className="c-productCard-bloc-Content-Media p-6 md:p-0">
@@ -31,24 +31,24 @@ function ProductCard(props) {
             </div>
 
             <div className="Content px-6 md:py-0 md:px-0 flex flex-col gap-y-2 md:mt-4">
-              <div className=" flex gap-x-1">
+              {/* <div className=" flex gap-x-1">
                 <p className="bg-black rounded-full text-white text-sm py-1 px-3">
                   Best Seller
                 </p>
                 <p className="bg-black rounded-full text-white text-sm py-1 px-3">
                   Top 5 in X Cat
                 </p>
-              </div>
+              </div> */}
 
               <div className="c-productCard-bloc-Content-Product">
-                <h5 className="max-s-sm text-2xl  font-medium ">
-                  Product Title
+                <h5 className="max-s-sm text-1xl  font-bold ">
+                  {props.data.name}
                 </h5>
-                <p className="text-3xl">£23.99</p>
+                <p className="text-1xl">£{props.data.price}</p>
               </div>
               <div className="rating | flex flex-row gap-x-1 items-center">
                 <small className="flex flex-row items-center">
-                  {rating} (24)
+                  {rating} ({props.data.review_count})
                 </small>
                 <div>
                   <button>
