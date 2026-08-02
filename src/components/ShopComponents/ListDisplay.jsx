@@ -2,11 +2,14 @@ import React from "react";
 import ProductRectangle from "./ProductCard/ProductRectangle";
 
 function ListDisplay(props) {
-  let productsToBeDisplayed = [];
 
-  for (let index = 0; index < 12; index++) {
-    productsToBeDisplayed.push(<ProductRectangle key={index}></ProductRectangle>);
-  }
+
+          let productsToBeDisplayed =[];
+
+    for (let index = 0; index < props.content.length; index++) {
+
+        productsToBeDisplayed.push(<ProductRectangle data={props.content[index]} key={index}></ProductRectangle>)
+    }
 
   return (
     <section data-template="display" data-view="List" className="c-listView">
