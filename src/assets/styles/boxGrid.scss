@@ -1,0 +1,13 @@
+
+.container:has(:hover) .grid-item:not(:hover) {
+   filter: brightness(0.5);
+  transform: scale(0.8);
+}
+
+.container:has(:hover) .grid-item:has(:hover) {
+  /* filter: brightness(1.5); */
+  transform: scale(1.2);
+  box-shadow: 5px 5px 20px #000;
+  
+}
+
