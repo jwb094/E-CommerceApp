@@ -22,9 +22,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/profile/:user" element={<Profile />} />
           <Route path="/search" element={<Shop />} />
-          <Route path="/category:cat_slug" element={<Category />} />
+          <Route path="/category/:cat_slug" element={<Category />} />
           <Route path="/categories" element={<CategoryHub />} />
-          <Route path="/product/:product_id" element={<ProductDetails />} />
+          <Route path="/product/:product_id/:product_slug" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
