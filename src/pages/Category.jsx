@@ -44,7 +44,6 @@ function Category(props) {
     paginatedDataSortedAndFiltered.slice((page - 1) * limit, page * limit),
   );
 
-  console.log(paginatedDataSortedAndFiltered);
   
 
   //SortDropdown
