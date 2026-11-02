@@ -3,8 +3,9 @@ import Button from "../../Button";
 import React from "react";
 
 function ProductRectangle(props) {
+  const roundedRating = Math.round(props.data.rating);
   let rating = [];
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < roundedRating; index++) {
     rating.push(<StarIcon width={12} height={12} />);
   }
   return (
@@ -12,14 +13,14 @@ function ProductRectangle(props) {
       <div className="conatiner">
         <div
           className="c-productCard-bloc | 
-                bg-white rounded-2xl shadow-2xl mx-6 md:space-y-0 md:space-x1-10 md:m-0 md:p-6  md:w-6/12"
+                bg-white rounded-2xl shadow-2xl mx-6 md:space-y-0 md:space-x1-10 md:m-0 md:p-6  md:w-12/12"
         >
           <div className="c-productCard-bloc-Content | flex flex-row md:gap-x-6">
             <div className="c-productCard-bloc-Content-Media p-6 md:p-0">
               <div className="bg-cyan-200 rounded-lg p-4">
                 <img
                   className="w-[200px]"
-                  src="https://freepngimg.com/thumb/computer_pc/9-2-computer-pc-transparent.png"
+                  src={props.data.media.thumbnail}
                   alt="product title"
                 />
               </div>
@@ -43,7 +44,7 @@ function ProductRectangle(props) {
               </div>
               <div className="rating | flex flex-row gap-x-1 items-center">
                 <small className="flex flex-row items-center">
-                  {rating} ({props.data.review_count})
+                  {rating}&nbsp;&nbsp;({props.data.review_count})
                 </small>
                 <div>
                   <button>

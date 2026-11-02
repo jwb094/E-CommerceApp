@@ -6,25 +6,29 @@ function ProductCard(props) {
   //logic - add product to Wishlist 
   //logic - add Product to Cart
   // logic add href to Product details page
-  let rating = [];
-  for (let index = 0; index < 5; index++) {
-    rating.push(<StarIcon width={12} height={12} />);
+  const roundedRating = Math.round(props.data.rating);
+
+  const rating = [];
+  for (let index = 0; index < roundedRating; index++) {
+    rating.push(<StarIcon key={index} width={12} height={12} />);
   }
+
   return (
     <section
       data-template="ProductCard"
       data-view="card"
       className="c=product-card"
     >
-      <div className="conatiner">
-        <div className="c-productCard-bloc | my-0 mx-auto bg-white rounded-2xl shadow-2xl md:space-y-0 md:space-x1-10 md:m-0 md:p-8 w-10/12 md:min-w-72 h-11/12"
-        >
+      {/* <div className="conatiner"> */}
+        <div className="c-productCard-bloc | my-0 mx-auto bg-white rounded-2xl shadow-2xl md:space-y-0 md:space-x1-10 
+        md:mx-auto md:my-0 md:p-8 w-10/12 md:min-w-72 md:h-11/12"
+        > 
           <div className="c-productCard-bloc-Content | flex flex-col ">
             <div className="c-productCard-bloc-Content-Media p-6 md:p-0">
               <div className="bg-cyan-200 rounded-lg p-4">
                 <img
-                  className="w-[250px]"
-                  src="https://freepngimg.com/thumb/computer_pc/9-2-computer-pc-transparent.png"
+                  className="w-62.5 max-h-48 object-contain"
+                  src={props.data.media.thumbnail}
                   alt="product title"
                 />
               </div>
@@ -48,7 +52,8 @@ function ProductCard(props) {
               </div>
               <div className="rating | flex flex-row gap-x-1 items-center">
                 <small className="flex flex-row items-center">
-                  {rating} ({props.data.review_count})
+
+                  {rating}&nbsp;&nbsp;({props.data.review_count})
                 </small>
                 <div>
                   <button>
@@ -60,7 +65,7 @@ function ProductCard(props) {
                 {/* OnClick - UseReducer Add To Cart */}
                 <Button title={"Add To Cart"}></Button>
                 <a
-                  href="/product/product_id/product_slug"
+                  href={`/product/${props.data.id}/${props.data.slug}`}
                   class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
                 >
                   View Product
@@ -69,7 +74,7 @@ function ProductCard(props) {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 }
