@@ -108,9 +108,16 @@ export const getProductById =(product_id)=>{
 }
 
 //Product Page - Get Related Products
-export const getProductRelatedItems = () =>{
+export const getProductRelatedItems = (category_id) => {
+  const relatedProducts = products
+    .filter((product) => product.category_id === category_id)
+    .slice(0, 4);
+  const additionalProducts = products
+    .filter((product) => product.category_id !== category_id)
+    .slice(0, 4 - relatedProducts.length);
 
-}
+  return [...relatedProducts, ...additionalProducts];
+};
 
 //export const getProducts;
 
