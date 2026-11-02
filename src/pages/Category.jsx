@@ -1,4 +1,4 @@
-import React, { useState,useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { useParams } from "react-router";
 import Breadcrumbs from "../components/layout/Breadcrumbs";
 import Filters from "../components/ShopComponents/Filters";
@@ -8,7 +8,13 @@ import ListDisplay from "../components/ShopComponents/ListDisplay";
 import SortDropdown from "../components/ShopComponents/SortDropdown";
 import ListViewButton from "../components/ListViewButton";
 
-import { contentPagintion, filteredProducts, getCategoryBySlug, getCategoryProducts, sortProducts } from "../utils/functions";
+import {
+  contentPagintion,
+  filteredProducts,
+  getCategoryBySlug,
+  getCategoryProducts,
+  sortProducts,
+} from "../utils/functions";
 import PageNotFound from "./PageNotFound";
 import { useFilterContext } from "../context/Filters";
 
@@ -17,7 +23,7 @@ function Category(props) {
   const [sort, setSort] = useState("");
   const [isViewGrid, setisViewGrid] = useState(true);
   const { cat_slug } = useParams();
-    const { filters } = useFilterContext();
+  const { filters } = useFilterContext();
   const getCategory = getCategoryBySlug(cat_slug);
   const categoryPaginationData = getCategoryProducts(cat_slug);
 
@@ -34,23 +40,27 @@ function Category(props) {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(9);
 
-  const paginatedDataSortedAndFiltered = useMemo(()=>{
-    return sortProducts(filteredProducts(categoryPaginationData,filters),sort)}
-    ,[filters,sort])
+  const paginatedDataSortedAndFiltered = useMemo(() => {
+    return sortProducts(
+      filteredProducts(categoryPaginationData, filters),
+      sort,
+    );
+  }, [filters, sort]);
 
-   const PaginationData = useMemo(()=> contentPagintion(page,limit,paginatedDataSortedAndFiltered),[page,limit,])
+  const PaginationData = useMemo(
+    () => contentPagintion(page, limit, paginatedDataSortedAndFiltered),
+    [page, limit],
+  );
 
   const productsToDisplay = useMemo(() =>
     paginatedDataSortedAndFiltered.slice((page - 1) * limit, page * limit),
   );
 
-  
-
   //SortDropdown
-  const handleSortView = (event) =>{
+  const handleSortView = (event) => {
     const value = event.target.value;
     setSort(value);
-  }
+  };
 
   //Display ViewButton Options Grid or List
   function handleDisplayView(event) {
@@ -81,7 +91,7 @@ function Category(props) {
               <div className="flex flex-row justify-between">
                 <p>Filter Result : {paginatedDataSortedAndFiltered.length}</p>
                 <div className="flex flex-row">
-                  <SortDropdown sortView={handleSortView}/>
+                  <SortDropdown sortView={handleSortView} />
                   <ListViewButton
                     onClick={handleDisplayView}
                     view={isViewGrid}
@@ -89,12 +99,23 @@ function Category(props) {
                 </div>
               </div>
 
-              {isViewGrid === true ? <GridDisplay content={productsToDisplay}/> : <ListDisplay content={productsToDisplay}/>}
-              <Pagination
-                totalPages={PaginationData.totalPages}
-                page={PaginationData.currentPage}
-                onPageChange={handlePageChange}
-              />
+              {isViewGrid === true ? (
+                <GridDisplay content={productsToDisplay} />
+              ) : (
+                <ListDisplay content={productsToDisplay} />
+              )}
+              
+              {categoryPaginationData.length === 0 ? (
+                <p className="text-center text-lg mt-6">No Products Found</p>
+              ) : null}
+              {categoryPaginationData.length !== 0 && (
+                <Pagination
+                  totalPages={PaginationData.totalPages}
+                  page={PaginationData.currentPage}
+                  onPageChange={handlePageChange}
+                />
+              )}
+
               {/* Grid/List    */}
             </section>
           </div>
