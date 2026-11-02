@@ -2,6 +2,10 @@ import { StarIcon, Wishlist } from "../../../assets/Icons";
 import Button from "../../Button";
 import React from "react";
 
+const placeholderImage = `data:image/svg+xml,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150"><rect width="100%" height="100%" fill="#e2e8f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="16">No image available</text></svg>',
+)}`;
+
 function ProductRectangle(props) {
   const roundedRating = Math.round(props.data.rating);
   let rating = [];
@@ -20,7 +24,7 @@ function ProductRectangle(props) {
               <div className="bg-cyan-200 rounded-lg p-4">
                 <img
                   className="w-[200px]"
-                  src={props.data.media.thumbnail}
+                  src={props.data.media.thumbnail ?? placeholderImage}
                   alt="product title"
                 />
               </div>
