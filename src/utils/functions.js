@@ -1,10 +1,8 @@
 import { categories } from "../data/Categories";
-import {products} from "../data/Products";
+import { products } from "../data/Products";
+import { productReviews } from "../data/ProductReviews";
 
-
-//home Page
-
-//Get Featured Products
+// Home page product collections
 export const getFeaturedProducts = function() {
   const featuredProducts = 
    products
@@ -14,31 +12,20 @@ export const getFeaturedProducts = function() {
   return featuredProducts;
 }
 
-// export const getFeaturedProducts =  featuredProducts = 
-//    products
-//    .filter((product) => product.featured)
-//   .slice(0, 3);
-  
-//Featured  Categories
+// Return sale products, excluding products already shown as featured.
 export const getSalesProducts = function() {
   let featuredProducts = getFeaturedProducts();
-  // let bestfeaturedProducts = getBestRatedProducts();
-  // let bestSellers = getBestSellers();
-  // let latestProducts = getLatestProducts()
 
   return products
     .sort((a,b)=>{
     return new Date(b.created_at) -  new Date(a.created_at) ? 1 : -1
   })
   .filter((product)=> !featuredProducts.some((featuredProduct) => featuredProduct.id === product.id))
-  // .filter((product)=> !bestfeaturedProducts.some((bestfeaturedProduct) => bestfeaturedProduct.id === product.id))
-  // .filter((product) => !bestSellers.some((bestSeller) => bestSeller.id === product.id))
-  // .filter((product) => !latestProducts.some((latestProduct) => latestProduct.id === product.id))
   .filter((product) => product.on_sale)
   .slice(0, 4)
 }
 
-//Get Best Rated 
+// Collect featured and sale products for the best-rated product section.
 export const getBestRatedProducts = () =>{
   let featuredProducts = getFeaturedProducts();
   let salesProducts = getSalesProducts();
@@ -52,7 +39,7 @@ export const getBestRatedProducts = () =>{
 
 }
 
-//Get Best Sellers
+// Build the best-seller collection using the other home page collections.
 export const getBestSellers = function() {
 
   let featuredProducts = getFeaturedProducts();
@@ -66,7 +53,7 @@ export const getBestSellers = function() {
   .slice(0, 4)
 }
 
-//Get Latest Products
+// Build the latest-products collection using the other home page collections.
 export const getLatestProducts = function() {
 
   let featuredProducts = getFeaturedProducts();
@@ -84,10 +71,7 @@ export const getLatestProducts = function() {
   .slice(0, 3)
 }
 
-
-
-
-//Featured  Categories
+// Return up to four categories marked as featured.
 export const getFeaturedCategories = function() {
   return categories.
   filter((category) => category.featured)
@@ -99,15 +83,21 @@ export const getCategoryBySlug = (categorySlug) => {
   return categories.find((cat) => cat.slug === categorySlug);
 };
 
-
+// Expose the complete category list for consumers that need every category.
 export const getAllCategories = categories;
 
-//Product Page - Get Product by Id
+// Product detail page lookups
 export const getProductById =(product_id)=>{
   return products.find((product) => product.id === Number(product_id))
 }
 
-//Product Page - Get Related Products
+// Return a product's reviews, or a message when no review record exists.
+export const getProductReviews = (product_id) => {
+  const product = productReviews.find((product) => product.product_id === Number(product_id));
+  return  product.reviews ?? "No Reviews Found";
+};
+
+// Prefer same-category products, then fill the collection with other products.
 export const getProductRelatedItems = (category_id) => {
   const relatedProducts = products
     .filter((product) => product.category_id === category_id)
@@ -119,15 +109,7 @@ export const getProductRelatedItems = (category_id) => {
   return [...relatedProducts, ...additionalProducts];
 };
 
-//export const getProducts;
-
-
-//Get Products by Category_id
-
-// export const getAllCategoryProducts =(categorySlug)=>{
-
-// }
-
+// Return all products belonging to the category identified by its slug.
 export const getCategoryProducts = (categorySlug) => {
 let selectedCat = categories.find((cat) => cat.slug === categorySlug);
 
@@ -136,9 +118,9 @@ const categoryProductsResults = products.filter((product) => product.category_id
 return categoryProductsResults;
 }
 
-// Pagination / Sort / Filter Logic
-
+// Listing helpers
 export const sortProducts = function (data, sort) {
+  // Sort a copy so the shared product data is not reordered.
   let sortedData = [...data];
 
  switch (sort) {
@@ -176,7 +158,7 @@ export const filteredProducts = function(data,filters){
   let filteredData = [...data];
 
     return filteredData.filter((product) => {
-      //Matches prices
+      // An empty filter list means that criterion is not restricting results.
       const matchesPrices =
         filters.prices.length === 0 ||
         filters.prices.some(
@@ -184,14 +166,11 @@ export const filteredProducts = function(data,filters){
       ); 
 
 
-      //Get Rating
-
       const matchRatings = 
         filters.ratings.length === 0 ||
         filters.ratings.some((rating)=>
         Number(product.ratings) >= rating);
 
-      //If On Sale
        const matchSale = 
         filters.sale.length === 0 ||
         filteredData.filter((product) => product.on_sale === filters.sale)
@@ -209,6 +188,7 @@ export const filteredProducts = function(data,filters){
 
 export const contentPagintion = (page,limit,contentData) =>{
     
+  // Keep the requested page within the available page range.
   let totalPages = Math.ceil(contentData.length / limit) || 1;
   let currentPage = Math.min(page, totalPages);
 
