@@ -59,7 +59,7 @@ function ContactUs(props) {
     return Object.keys(validationErrors).length === 0;
   }
 
-  function handleLoginSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     setTimeout(() => {
@@ -94,7 +94,7 @@ function ContactUs(props) {
             </p>
             <form
               className="mt-8 mb-2 w-8/12 max-w-screen-lg "
-              onSubmit={handleLoginSubmit}
+              onSubmit={handleSubmit}
             >
               <div className="mb-1 flex flex-col gap-6">
                 <div className="w-full">
