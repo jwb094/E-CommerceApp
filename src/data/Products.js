@@ -1661,11 +1661,11 @@ export const products = [
 
 
         thumbnail:
-        "1.jpg",
+        "https://images.pexels.com/photos/797637/pexels-photo-797637.jpeg",
 
 
         image:
-        "1.jpg",
+        "https://images.pexels.com/photos/797637/pexels-photo-797637.jpeg",
 
 
         gallery:[
