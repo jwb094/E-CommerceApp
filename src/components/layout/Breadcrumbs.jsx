@@ -8,7 +8,7 @@ function Breadcrumbs(props) {
         data-view="default"
         className="c-breadcrumbs py-6"
       >
-    <div className="container mx-auto  px-12 py-16 sm:px-6 lg:px-0">
+    <div className={ props.className !== undefined ? `container ${props.className}` : "container mx-auto  px-12 py-16 sm:px-6 lg:px-0"}>
         <nav aria-label="breadcrumb" className="w-max">
           <ol className="flex w-full flex-wrap items-center rounded-md bg-slate-50 px-4 py-2">
             <li className="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
