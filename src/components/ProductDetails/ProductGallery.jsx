@@ -1,4 +1,5 @@
-function ProductGallery() {
+function ProductGallery(props) {
+  console.log(props.productsGallery);
   return (
     <section
       data-template="ProductGallery"
@@ -8,7 +9,16 @@ function ProductGallery() {
     >
       <div className="relative overflow-hidden rounded-xl bg-slate-100 shadow-xl">
         <div className="flex aspect-video snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <img
+          {props.productsGallery.map((image, index) => (
+            <img
+              key={index}
+              id={`slide-${index + 1}`}
+              src={image.image}
+              alt={`Product image ${index.alt || index + 1}`}
+              className="h-full w-full shrink-0 snap-start object-cover"
+            />
+          ))}
+          {/* <img
             id="slide1"
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Scenic mountain landscape"
@@ -25,7 +35,7 @@ function ProductGallery() {
             src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Forest landscape"
             className="h-full w-full shrink-0 snap-start object-cover"
-          />
+          /> */}
         </div>
         <nav
           aria-label="Choose gallery image"
