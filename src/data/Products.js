@@ -4808,6 +4808,355 @@ export const products = [
         fifa_quality:"FIFA Quality Certified"
     }
 }
+,{
+    id: 56,
 
+    sku: "BB-GARDEN-DINING-001",
+
+    name: "Outdoor Garden Dining Table Set",
+
+    slug: "outdoor-garden-dining-table-set",
+
+    short_description:
+        "Contemporary outdoor dining set designed for garden dining, entertaining and relaxing.",
+
+    description:
+        "Create a welcoming outdoor dining space with this contemporary garden dining set. Designed for patios, terraces and garden spaces, the set provides a practical area for outdoor meals, family gatherings and entertaining guests. Its versatile design complements a range of outdoor settings, making it a useful addition to any garden.",
+
+    category_id: 9,
+
+    brand_id: null,
+
+    price: 299.99,
+
+    sale_price: 249.99,
+
+    cost_price: 165.00,
+
+    currency: "GBP",
+
+    stock_quantity: 18,
+
+    low_stock_threshold: 5,
+
+    status: "In Stock",
+
+    featured: true,
+
+    new_arrival: true,
+
+    best_seller: false,
+
+    on_sale: true,
+
+    rating: 4.6,
+
+    review_count: 327,
+
+    colour: "Natural Wood",
+
+    warranty: "1 Year Manufacturer Warranty",
+
+    media: {
+        thumbnail:
+            "https://images.pexels.com/photos/19955703/pexels-photo-19955703.jpeg",
+
+        image:
+            "https://images.pexels.com/photos/19955703/pexels-photo-19955703.jpeg"
+    },
+
+    specifications: {
+        product_type: "Outdoor Dining Set",
+        seating_capacity: 4,
+        material: "Wood and Metal",
+        suitable_for: "Outdoor Use",
+        assembly_required: true,
+        weather_resistant: true
+    }
+},
+{
+    id: 57,
+
+    sku: "ADIDAS-YOGA-MAT-001",
+
+    name: "Adidas Yoga & Fitness Exercise Mat",
+
+    slug: "adidas-yoga-fitness-exercise-mat",
+
+    short_description:
+        "Comfortable exercise mat designed for yoga, stretching, Pilates and everyday fitness routines.",
+
+    description:
+        "The Adidas Yoga and Fitness Exercise Mat provides a comfortable and practical surface for home workouts, yoga sessions, Pilates and stretching exercises. Its lightweight design makes it easy to roll up, transport and store between sessions. The textured surface provides additional grip during floor-based exercises, helping support a variety of fitness routines.",
+
+    category_id: 6,
+
+    brand_id: 44,
+
+    price: 29.99,
+
+    sale_price: 24.99,
+
+    cost_price: 13.50,
+
+    currency: "GBP",
+
+    stock_quantity: 76,
+
+    low_stock_threshold: 10,
+
+    status: "In Stock",
+
+    featured: true,
+
+    new_arrival: true,
+
+    best_seller: true,
+
+    on_sale: true,
+
+    rating: 4.7,
+
+    review_count: 864,
+
+    colour: "Blue",
+
+    warranty: "1 Year Manufacturer Warranty",
+
+    media: {
+        thumbnail:
+            "https://images.pexels.com/photos/16143599/pexels-photo-16143599.jpeg",
+
+        image:
+            "https://images.pexels.com/photos/16143599/pexels-photo-16143599.jpeg"
+    },
+
+    specifications: {
+        product_type: "Yoga and Exercise Mat",
+        material: "Foam",
+        thickness: "6mm",
+        surface: "Textured Non-Slip",
+        suitable_for: [
+            "Yoga",
+            "Pilates",
+            "Stretching",
+            "Home Workouts"
+        ],
+        portable: true
+    }
+},
+{
+    id: 58,
+
+    sku: "BB-OFFICE-STATIONERY-001",
+
+    name: "Office Stationery Essentials Set",
+
+    slug: "office-stationery-essentials-set",
+
+    short_description:
+        "Everyday stationery collection featuring essential writing and organisation accessories.",
+
+    description:
+        "Keep your workspace organised with this practical office stationery essentials set. Designed for students, professionals and home office users, the collection brings together everyday stationery items suitable for note-taking, planning, document organisation and general office tasks. Whether used at school, university or in a professional environment, it provides useful accessories for everyday productivity.",
+
+    category_id: 12,
+
+    brand_id: null,
+
+    price: 24.99,
+
+    sale_price: 19.99,
+
+    cost_price: 9.50,
+
+    currency: "GBP",
+
+    stock_quantity: 124,
+
+    low_stock_threshold: 15,
+
+    status: "In Stock",
+
+    featured: false,
+
+    new_arrival: true,
+
+    best_seller: true,
+
+    on_sale: true,
+
+    rating: 4.5,
+
+    review_count: 492,
+
+    colour: "Assorted",
+
+    warranty: null,
+
+    media: {
+        thumbnail:
+            "https://images.pexels.com/photos/6340707/pexels-photo-6340707.jpeg",
+
+        image:
+            "https://images.pexels.com/photos/6340707/pexels-photo-6340707.jpeg"
+    },
+
+    specifications: {
+        product_type: "Stationery Set",
+        contents: [
+            "Notebooks",
+            "Pens",
+            "Paper Clips",
+            "Sticky Notes",
+            "Office Accessories"
+        ],
+        suitable_for: [
+            "Home Office",
+            "School",
+            "University",
+            "Business"
+        ],
+        reusable: true
+    }
+},
+{
+    id: 59,
+
+    sku: "BB-CERAMIC-PLANTER-001",
+
+    name: "Decorative Indoor Ceramic Planter",
+
+    slug: "decorative-indoor-ceramic-planter",
+
+    short_description:
+        "Modern ceramic plant pot designed to complement contemporary living spaces and interiors.",
+
+    description:
+        "Add a natural decorative touch to your living space with this contemporary ceramic planter. Designed to complement modern interiors, its understated appearance makes it suitable for living rooms, bedrooms, home offices and decorative shelving. Ideal for displaying indoor plants, succulents and small decorative greenery, it combines everyday practicality with a minimalist aesthetic.",
+
+    category_id: 4,
+
+    brand_id: null,
+
+    price: 34.99,
+
+    sale_price: 29.99,
+
+    cost_price: 12.00,
+
+    currency: "GBP",
+
+    stock_quantity: 63,
+
+    low_stock_threshold: 8,
+
+    status: "In Stock",
+
+    featured: true,
+
+    new_arrival: true,
+
+    best_seller: false,
+
+    on_sale: true,
+
+    rating: 4.6,
+
+    review_count: 318,
+
+    colour: "Beige",
+
+    warranty: null,
+
+    media: {
+        thumbnail:
+            "https://images.pexels.com/photos/6968197/pexels-photo-6968197.jpeg",
+
+        image:
+            "https://images.pexels.com/photos/6968197/pexels-photo-6968197.jpeg"
+    },
+
+    specifications: {
+        product_type: "Decorative Planter",
+        material: "Ceramic",
+        colour: "Beige",
+        suitable_for: "Indoor Use",
+        style: "Contemporary",
+        drainage_hole: false,
+        plant_included: false
+    }
+},
+{
+    id: 60,
+
+    sku: "BB-LED-DESKLAMP-001",
+
+    name: "Modern LED Desk Lamp",
+
+    slug: "modern-led-desk-lamp",
+
+    short_description:
+        "Contemporary LED desk lamp designed for reading, studying and everyday workspace lighting.",
+
+    description:
+        "Improve your workspace lighting with this modern LED desk lamp. Designed for home offices, study areas and professional workspaces, it provides practical illumination for reading, writing and computer-based tasks. Its minimalist design complements contemporary desk setups while its adjustable lighting direction allows you to position the light where it is needed most.",
+
+    category_id: 12,
+
+    brand_id: null,
+
+    price: 49.99,
+
+    sale_price: 39.99,
+
+    cost_price: 19.00,
+
+    currency: "GBP",
+
+    stock_quantity: 45,
+
+    low_stock_threshold: 8,
+
+    status: "In Stock",
+
+    featured: true,
+
+    new_arrival: true,
+
+    best_seller: false,
+
+    on_sale: true,
+
+    rating: 4.7,
+
+    review_count: 276,
+
+    colour: "Black",
+
+    warranty: "2 Year Manufacturer Warranty",
+
+    media: {
+        thumbnail:
+            "https://images.pexels.com/photos/13068362/pexels-photo-13068362.jpeg",
+
+        image:
+            "https://images.pexels.com/photos/13068362/pexels-photo-13068362.jpeg"
+    },
+
+    specifications: {
+        product_type: "LED Desk Lamp",
+        light_type: "LED",
+        power_source: "Mains Powered",
+        adjustable: true,
+        dimmable: true,
+        suitable_for: [
+            "Home Office",
+            "Study",
+            "Reading",
+            "Workspaces"
+        ]
+    }
+}
 
 ];
