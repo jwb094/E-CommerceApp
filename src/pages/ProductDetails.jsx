@@ -120,7 +120,7 @@ function ProductDetails(props) {
               <>
               {reviews.map((review, index) => (
 
-              <Accordion title={review.name} question={review} />
+              <Accordion title={review.name} review={review} />
               ))}
               </>
             ) : (
