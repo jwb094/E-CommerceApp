@@ -51,7 +51,7 @@ function ProductDetails(props) {
       <div className="mx-auto lg:w-7xl px-4 py-16 sm:px-6 lg:px-0">
         <div className="container">
           <section className="category_details | mb-5">
-            <Breadcrumbs items={breadcrumbs} />
+            <Breadcrumbs utilityClass="py-0" items={breadcrumbs} />
           </section>
 
           <div className="product_details | grid grid-cols-1 xl:grid-cols-2 gap-4 | mb-5">
