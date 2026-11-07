@@ -1,5 +1,4 @@
 function Accordion(props) {
-  console.log(props.review)
   return (
     <section className="my-12 w-full">
       <details className="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
