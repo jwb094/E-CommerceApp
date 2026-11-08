@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 import { FiltersProvider } from "./context/Filters.jsx";
+import { WishlistProvider } from "./context/WishlistContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <FiltersProvider>
-        <App />
-      </FiltersProvider>
+      <WishlistProvider>
+        <FiltersProvider>
+          <App />
+        </FiltersProvider>
+      </WishlistProvider>
     </BrowserRouter>
   </StrictMode>,
 );
