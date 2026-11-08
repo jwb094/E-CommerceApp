@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HambugerIcon } from '../../assets/Icons';
-
+import { Link } from "react-router";
 function Header(props) {
       const [isOpen, setIsOpen] = useState(false);
     return (
@@ -10,7 +10,8 @@ function Header(props) {
           <div className="flex justify-between items-center">
             {/* Brand */}
             <div className="font-bold text-xl">
-                 <a href="/">BrightBuy</a>
+              <Link to="/">BrightBuy</Link>
+                 {/* <a href="/">BrightBuy</a> */}
                 {/* <Link to="/">Job Seekers</Link> */}
           
             </div>
@@ -31,15 +32,18 @@ function Header(props) {
                 className={`flex flex-col md:flex-row md:gap-6 px-6 py-4 gap-y-6  ${isOpen ? "border-t-2 " : ""}`}
               >
                 <li className="text-lg">
-                  <a href="/about">About</a>
+                        <Link to="/">About</Link>
+                  {/* <a href="/about">About</a> */}
                   {/* <Link to="/about">About</Link> */}
                 </li>
                 <li className="text-lg">
-                  <a href="/search">Search</a>
+                  <Link to="/search">Search</Link>
+                  {/* <a href="/search">Search</a> */}
                   {/* <Link to="/search">Search</Link> */}
                 </li>
                 <li className="text-lg">
-                  <a href="/contact-us">Contact</a>
+                  <Link to="/contact-us">Contact</Link>
+                  {/* <a href="/contact-us">Contact</a> */}
                   {/* <Link to="/contact-us">Contact</Link> */}
                 </li>
               </ul>
