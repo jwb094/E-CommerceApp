@@ -112,6 +112,10 @@ export const getCategoryBySlug = (categorySlug) => {
   return categories.find((cat) => cat.slug === categorySlug);
 };
 
+export const getCategoryByProductCategoryId = (category_id) => {
+  return categories.find((cat) => cat.id === category_id);
+}
+
 // Expose the complete category list for consumers that need every category.
 export const getAllCategories = categories;
 
