@@ -13,7 +13,7 @@ function ProductRectangle(props) {
   const roundedRating = Math.round(props.data.rating);
   let rating = [];
   for (let index = 0; index < roundedRating; index++) {
-    rating.push(<StarIcon width={12} height={12} />);
+    rating.push(<StarIcon key={index} width={12} height={12} />);
   }
 
   // Access the wishlist context to manage wishlist actions.
@@ -22,45 +22,48 @@ function ProductRectangle(props) {
   const isWishlisted = state.wishlist.includes(props.data.id);
 
   return (
-    <section data-template="ProductCard" data-view="rectangle" className="">
-      <div className="conatiner">
+    <section
+      data-template="ProductRectangle"
+      data-view="rectangle"
+      className="c-productRectangle w-full"
+    >
+      <div className="h-full">
         <div
-          className="c-productCard-bloc | 
-                bg-white rounded-2xl shadow-2xl mx-6 md:space-y-0 md:space-x1-10 md:m-0 md:p-6  md:w-12/12"
+          className="c-productCard-bloc | flex h-[26rem] w-full flex-col rounded-2xl bg-white p-4 shadow-2xl md:h-80 md:flex-row md:gap-6 md:p-6"
         >
-          <div className="c-productCard-bloc-Content | flex flex-row md:gap-x-6">
-            <div className="c-productCard-bloc-Content-Media p-6 md:p-0">
-              <div className="bg-cyan-200 rounded-lg p-4">
+          <div className="c-productCard-bloc-Content | flex h-full min-h-0 flex-col md:flex-row md:gap-6">
+            <div className="c-productCard-bloc-Content-Media h-40 shrink-0 md:h-full md:w-52">
+              <div className="flex h-full items-center justify-center rounded-lg bg-cyan-200 p-4">
                 <img
-                  className="w-[200px]"
+                  className="h-full w-full object-contain"
                   src={props.data.media.thumbnail ?? placeholderImage}
-                  alt="product title"
+                  alt={props.data.name}
                 />
               </div>
             </div>
 
-            <div className="Content  py-0 px-0 flex flex-col gap-y-2 ">
+            <div className="Content flex min-h-0 min-w-0 flex-1 flex-col gap-y-2 pt-3 md:pt-0">
               <div className="c-productCard-bloc-Content-Product">
-                <h5 className="max-s-sm text-2xl  font-medium ">
+                <h5 className="line-clamp-2 min-h-14 text-xl font-medium leading-7">
                   {props.data.name}
                 </h5>
-                <p className="text-3xl">£{props.data.price}</p>
+                <p className="text-2xl">£{props.data.price}</p>
               </div>
               <div className="rating | flex flex-row gap-x-1 items-center">
                 <small className="flex flex-row items-center">
                   {rating}&nbsp;&nbsp;({props.data.review_count})
                 </small>
               </div>
-              <div className="buttons flex flex-col gap-6 md:flex-row justify-between">
+              <div className="buttons mt-auto flex flex-col gap-3 pt-3 md:flex-row">
                 <Link
                   to={`/product/${props.data.id}/${props.data.slug}`}
-                  className="flex-1 text-center rounded-md bg-slate-800 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 "
+                  className="flex-1 whitespace-nowrap rounded-md bg-slate-800 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800"
                 >
                   View Product
                 </Link>
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+                  className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-slate-300 px-3 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
                   onClick={() =>
                     isWishlisted
                       ? dispatch({
