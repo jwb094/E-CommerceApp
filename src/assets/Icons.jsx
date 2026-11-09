@@ -247,6 +247,25 @@ export const WishlistIconFill = (props) => (
   </svg>
 );  
 
+export const BasketIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={props.width}
+    height={props.height}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6" />
+    <circle cx="10" cy="21" r="1" />
+    <circle cx="18" cy="21" r="1" />
+  </svg>
+);
+
 export const WishlistFill = (props) => {
   return (
     <svg
