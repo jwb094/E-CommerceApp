@@ -26,33 +26,31 @@ function ProductCard(props) {
     <section
       data-template="ProductCard"
       data-view="card"
-      className="c=product-card"
+      className="h-full min-w-0"
     >
-      {/* <div className="conatiner"> */}
       <div
-        className="c-productCard-bloc | my-0 mx-auto bg-white rounded-2xl shadow-2xl md:space-y-0 md:space-x1-10 
-        md:mx-auto md:my-0 md:p-8 w-10/12 md:min-w-80 md:min-h-96"
+        className="c-productCard-bloc | flex h-full w-full flex-col rounded-2xl bg-white p-6 shadow-2xl"
       >
-        <div className="c-productCard-bloc-Content | flex flex-col ">
-          <div className="c-productCard-bloc-Content-Media p-6 md:p-0">
-            <div className="bg-cyan-200 rounded-lg p-4">
+        <div className="c-productCard-bloc-Content | flex flex-1 flex-col">
+          <div className="c-productCard-bloc-Content-Media">
+            <div className="flex h-48 items-center justify-center rounded-lg bg-cyan-200 p-4">
               <img
-                className="w-62.5 max-h-48 object-contain"
+                className="h-full w-full object-contain"
                 src={props.data.media.thumbnail}
-                alt="product title"
+                alt={props.data.name}
               />
             </div>
           </div>
 
-          <div className="Content px-6 md:py-0 md:px-0 flex flex-col gap-y-2 md:mt-4">
+          <div className="Content mt-4 flex flex-1 flex-col gap-y-2">
             <div className="c-productCard-bloc-Content-Product">
-              <h5 className="max-s-sm text-1xl  font-bold ">
+              <h5 className="line-clamp-2 min-h-12 text-lg font-bold leading-6">
                 {props.data.name}
               </h5>
-              <p className="text-1xl">£{props.data.price}</p>
+              <p className="text-lg">£{props.data.price}</p>
             </div>
 
-            <div className="flex flex-col gap-y-3">
+            <div className="mt-auto flex flex-col gap-y-3 pt-4">
               <Link
                 to={`/product/${props.data.id}/${props.data.slug}`}
                 className="flex-1 text-center rounded-md bg-slate-800 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 "
@@ -94,7 +92,6 @@ function ProductCard(props) {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </section>
   );
 }
