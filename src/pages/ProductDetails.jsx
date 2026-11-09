@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import { useWishlistContext } from "../context/WishlistContext";
+import { useBasketContext } from "../context/BasketContext";
 import {
   StarIcon,
   WishlistIcon,
@@ -22,6 +23,7 @@ const placeholderImage = `data:image/svg+xml,${encodeURIComponent(
 )}`;
 
 function ProductDetails(props) {
+  const [quantity, setQuantity] = useState(1);
   let breadcrumbs,
     productsImages = [];
   // Get the product ID from the route parameters.
@@ -57,6 +59,28 @@ function ProductDetails(props) {
   const { state, dispatch } = useWishlistContext();
   //  Check if the current product is already in the wishlist.
   const isWishlisted = state.wishlist.includes(product.id);
+  const { state:basketState, dispatch:basketDispatch } = useBasketContext();
+  const isInBasket = basketState.items.some(
+    (item) => item.product_id === product.id,
+  );
+  
+  function handleAddToBasket(product) {
+ // Check if the product is already in the basket before adding it
+    if (!isInBasket) {
+      basketDispatch({
+        type: "ADD_TO_BASKET",
+        payload: { product_id: product.id, quantity },
+      });
+    }
+    // If the product is already in the basket, increase its quantity
+    if (isInBasket) {
+      basketDispatch({
+        type: "INCREASE_QUANTITY",
+        payload: { id: product.id, quantity : quantity },
+      });
+    }
+  }
+
   return (
     <>
       <div className="mx-auto lg:w-7xl px-4 py-16 sm:px-6 lg:px-0">
@@ -106,7 +130,10 @@ function ProductDetails(props) {
                     </label>
                     <select
                       id="product-quantity"
-                      defaultValue="1"
+                      value={quantity}
+                      onChange={(event) =>
+                        setQuantity(Number(event.target.value))
+                      }
                       className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-200"
                     >
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((quantity) => (
@@ -119,6 +146,7 @@ function ProductDetails(props) {
                   <button
                     type="button"
                     className="flex-1 rounded-md bg-slate-800 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800"
+                    onClick={() => handleAddToBasket(product)}
                   >
                     Add To Basket
                   </button>
