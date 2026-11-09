@@ -25,9 +25,9 @@ function Footer(props) {
 
           {/* Employers */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">
+            {/* <h3 className="text-sm font-semibold text-gray-900">
               Employers
-            </h3>
+            </h3> */}
 
             <ul className="mt-4 space-y-3 text-sm">
               {/* <li><Link to="#" className="text-gray-600 hover:text-gray-900">Post a Job</Link></li>
@@ -39,9 +39,9 @@ function Footer(props) {
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">
+            {/* <h3 className="text-sm font-semibold text-gray-900">
               Company
-            </h3>
+            </h3> */}
 
             <ul className="mt-4 space-y-3 text-sm">
               {/* <li><Link to="#" className="text-gray-600 hover:text-gray-900">About Us</Link></li>
@@ -53,9 +53,9 @@ function Footer(props) {
 
           {/* Legal */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">
+            {/* <h3 className="text-sm font-semibold text-gray-900">
               Legal
-            </h3>
+            </h3> */}
 
             <ul className="mt-4 space-y-3 text-sm">
               {/* <li><Link to="#"className="text-gray-600 hover:text-gray-900">Privacy Policy</Link></li>
@@ -71,7 +71,7 @@ function Footer(props) {
         <div className="mt-10 border-t border-gray-100 pt-6 flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
 
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Job Seekers. All rights reserved.
+            © {new Date().getFullYear()} Bright Buy. All rights reserved.
           </p>
 
       
