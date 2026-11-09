@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { HambugerIcon } from '../../assets/Icons';
+import { HambugerIcon, WishlistIconFill } from '../../assets/Icons';
+import { useWishlistContext } from '../../context/WishlistContext';
 import { Link } from "react-router";
 function Header(props) {
       const [isOpen, setIsOpen] = useState(false);
+    const { state } = useWishlistContext();
+    const wishlistCount = state.wishlist.length;
     return (
     <>
       <header>
@@ -48,6 +51,16 @@ function Header(props) {
                 </li>
               </ul>
             </div>
+            <Link
+              to="/wishlist"
+              aria-label={`Wishlist, ${wishlistCount} ${wishlistCount === 1 ? "product" : "products"}`}
+              className="relative inline-flex items-center gap-1 text-slate-800 hover:text-rose-600"
+            >
+              <WishlistIconFill width={26} height={26} />
+              <span className="min-w-5 rounded-full bg-rose-600 px-1.5 py-0.5 text-center text-xs font-semibold leading-4 text-white">
+                {wishlistCount}
+              </span>
+            </Link>
           </div>
         </nav>
       </header>
