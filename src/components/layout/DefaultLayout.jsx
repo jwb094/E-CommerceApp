@@ -6,9 +6,11 @@ import { Outlet } from "react-router";
 function DefaultLayout(props) {
   return (
     <HelmetProvider>
-      <main>
+      <main className="flex min-h-svh flex-1 flex-col">
         <Header />
-        <Outlet />
+        <div className="flex-1">
+          <Outlet />
+        </div>
         <Footer />
       </main>
     </HelmetProvider>
