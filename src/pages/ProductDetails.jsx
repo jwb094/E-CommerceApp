@@ -15,6 +15,7 @@ import {
   getProductById,
   getProductRelatedItems,
   getProductReviews,
+  getCategoryByProductCategoryId
 } from "../utils/functions";
 import { Link } from "react-router";
 
@@ -49,9 +50,10 @@ function ProductDetails(props) {
     rating.push(<StarIcon key={index} width={18} height={18} />);
   }
 
-  // Use the product name as the final breadcrumb.
+// Generate breadcrumbs based on the product's category and name.
   if (product) {
-    breadcrumbs = [product.name];
+    const category = getCategoryByProductCategoryId(product.category_id);
+    breadcrumbs = [category.name, product.name];
   }
   // Find products from the same category for the recommendations section.
   const relatedProducts = getProductRelatedItems(product.category_id);
@@ -59,10 +61,10 @@ function ProductDetails(props) {
   const { state, dispatch } = useWishlistContext();
   //  Check if the current product is already in the wishlist.
   const isWishlisted = state.wishlist.includes(product.id);
+  // Access the basket context to manage basket actions.
   const { state:basketState, dispatch:basketDispatch } = useBasketContext();
-  const isInBasket = basketState.items.some(
-    (item) => item.product_id === product.id,
-  );
+  // Check if the current product is already in the basket.
+  const isInBasket = basketState.items.some((item) => item.product_id === product.id);
   
   function handleAddToBasket(product) {
  // Check if the product is already in the basket before adding it
