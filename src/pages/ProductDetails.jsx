@@ -55,6 +55,7 @@ function ProductDetails(props) {
   const relatedProducts = getProductRelatedItems(product.category_id);
   // Access the wishlist context to manage wishlist actions.
   const { state, dispatch } = useWishlistContext();
+  //  Check if the current product is already in the wishlist.
   const isWishlisted = state.wishlist.includes(product.id);
   return (
     <>
@@ -125,7 +126,6 @@ function ProductDetails(props) {
                     type="button"
                     className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
                     onClick={() =>
-                      // Check if the product is already in the wishlist and dispatch the appropriate action.
                       isWishlisted
                         ? dispatch({
                             type: "REMOVE_FROM_WISHLIST",
@@ -137,14 +137,12 @@ function ProductDetails(props) {
                           })
                     }
                   >
-                    // Display the appropriate wishlist icon and text based on whether the product is in the wishlist.
                     {isWishlisted ? (
                       <WishlistIconFill width={20} height={20} />
                     ) : (
                       <WishlistIcon width={20} height={20} />
                     )}
-                    {/* Add to Wishlist */}
-                    // Display the appropriate text based on whether the product is in the wishlist.
+
                     {isWishlisted ? (
                       <span className="ml-2 text-sm text-green-600">
                         Remove from Wishlist
