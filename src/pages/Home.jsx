@@ -42,7 +42,7 @@ function Home(props) {
         {/* Latest */}
         <section>
       <h2 className="text-3xl font-bold"> Latest</h2>
-        <div className="flex flex-col md:flex-row md:justify-around | gap-x-6 py-12">
+        <div className="grid grid-cols-1 gap-6 py-12 md:grid-cols-3">
           
           {latestProducts.map((latest)=>(
             <ProductCard data={latest}/>
@@ -63,7 +63,7 @@ function Home(props) {
         </div> */}
         <section>
           <h2 className="text-3xl font-bold"> Best Rated</h2>
-        <div className="flex flex-col md:flex-row md:justify-around | gap-x-6 py-12">
+        <div className="grid grid-cols-1 gap-6 py-12 md:grid-cols-3">
                    
           {bestRatedProducts.map((bestRatedProduct)=>(
             <ProductCard data={bestRatedProduct}/>
