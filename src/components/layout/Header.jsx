@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { HambugerIcon, WishlistIconFill } from '../../assets/Icons';
+import { BasketIcon, HambugerIcon, WishlistIconFill } from '../../assets/Icons';
 import { useWishlistContext } from '../../context/WishlistContext';
+import { useBasketContext } from '../../context/BasketContext';
 import { Link } from "react-router";
 function Header(props) {
       const [isOpen, setIsOpen] = useState(false);
     const { state } = useWishlistContext();
     const wishlistCount = state.wishlist.length;
+    const { state: basketState } = useBasketContext();
+    const basketCount = basketState.items.reduce(
+      (total, item) => total + item.quantity,
+      0,
+    );
     return (
     <>
       <header>
@@ -51,16 +57,28 @@ function Header(props) {
                 </li>
               </ul>
             </div>
-            <Link
-              to="/wishlist"
-              aria-label={`Wishlist, ${wishlistCount} ${wishlistCount === 1 ? "product" : "products"}`}
-              className="relative inline-flex items-center gap-1 text-slate-800 hover:text-rose-600"
-            >
-              <WishlistIconFill width={26} height={26} />
-              <span className="min-w-5 rounded-full bg-rose-600 px-1.5 py-0.5 text-center text-xs font-semibold leading-4 text-white">
-                {wishlistCount}
-              </span>
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link
+                to="/basket"
+                aria-label={`Basket, ${basketCount} ${basketCount === 1 ? "item" : "items"}`}
+                className="relative inline-flex items-center gap-1 text-slate-800 hover:text-slate-600"
+              >
+                <BasketIcon width={26} height={26} />
+                <span className="min-w-5 rounded-full bg-slate-800 px-1.5 py-0.5 text-center text-xs font-semibold leading-4 text-white">
+                  {basketCount}
+                </span>
+              </Link>
+              <Link
+                to="/wishlist"
+                aria-label={`Wishlist, ${wishlistCount} ${wishlistCount === 1 ? "product" : "products"}`}
+                className="relative inline-flex items-center gap-1 text-slate-800 hover:text-rose-600"
+              >
+                <WishlistIconFill width={26} height={26} />
+                <span className="min-w-5 rounded-full bg-rose-600 px-1.5 py-0.5 text-center text-xs font-semibold leading-4 text-white">
+                  {wishlistCount}
+                </span>
+              </Link>
+            </div>
           </div>
         </nav>
       </header>
