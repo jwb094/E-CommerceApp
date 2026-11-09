@@ -3,8 +3,6 @@
   };
 
 export function wishlistReducer(state = initialState, action) {
-  console.log("Wishlist Reducer Action:", action); // Log the action for debugging
-  console.log("Current State:", state); // Log the current state for debugging
   switch (action.type) {
     // Add cases for wishlist actions
     case "ADD_TO_WISHLIST":
