@@ -1,16 +1,14 @@
-import React from "react";
-
-function SearchBar(props) {
+function SearchBar({ query, onQueryChange, onSearch }) {
   return (
     <section
       data-template="SearchBar"
       data-view="default"
-      className="c-searchbar | py-12"
+      className="c-searchbar py-4"
     >
-      <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-12">
-        <form action="">
+      <div className="container mx-auto px-0 py-4">
+        <form onSubmit={onSearch}>
           <div className="w-full | md:flex md:flex-row  md:justify-center">
-            <div className="relative flex flex-col md:flex-row mx-6 gap-y-6 justify-center md:w-1/2">
+            <div className="relative flex flex-col justify-center gap-y-4 md:w-1/2 md:flex-row">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -25,8 +23,13 @@ function SearchBar(props) {
               </svg>
 
               <input
+                type="search"
+                name="query"
+                aria-label="Search products"
+                value={query}
+                onChange={onQueryChange}
                 className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                placeholder="UI Kits, Dashboards..."
+                placeholder="Search products..."
               />
 
               <button
