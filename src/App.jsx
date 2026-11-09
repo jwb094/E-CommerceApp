@@ -14,6 +14,7 @@ import Checkout from "./pages/Checkout";
 import Shop from "./pages/Shop";
 import Profile from "./pages/Profile";
 import ProductDetails from "./pages/ProductDetails";
+import Wishlist from "./pages/Wishlist";
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
           <Route path="/categories" element={<CategoryHub />} />
           <Route path="/product/:product_id/:product_slug" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
