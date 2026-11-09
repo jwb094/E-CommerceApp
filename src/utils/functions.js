@@ -130,6 +130,34 @@ export const getCategoryProducts = (categorySlug) => {
   return categoryProductsResults;
 };
 
+// Search product descriptions and attributes, including their category and tags.
+export const searchProducts = (query, productData = products) => {
+  const normalizedQuery = query.trim().toLocaleLowerCase();
+  if (!normalizedQuery) {
+    return productData;
+  }
+
+  return productData.filter((product) => {
+    const category = getCategoryByProductCategoryId(product.category_id);
+    const searchableValues = [
+      product.name,
+      product.description,
+      product.short_description,
+      product.sku,
+      product.barcode,
+      product.colour,
+      product.size,
+      product.material,
+      category?.name,
+      ...(product.tags ?? []),
+    ];
+
+    return searchableValues.some((value) =>
+      String(value ?? "").toLocaleLowerCase().includes(normalizedQuery),
+    );
+  });
+};
+
 // Product detail page lookups
 export const getProductById = (product_id) => {
   return products.find((product) => product.id === Number(product_id));
@@ -193,23 +221,18 @@ export const sortProducts = function (data, sort) {
   return sortedData;
 };
 export const filteredProducts = function (data, filters) {
-  let filteredData = [...data];
-
-  return filteredData.filter((product) => {
-    // An empty filter list means that criterion is not restricting results.
-    const matchesPrices =
+  return data.filter((product) => {
+    const matchesPrice =
       filters.prices.length === 0 ||
       filters.prices.some((price) => Number(product.price) >= price);
-
-    const matchRatings =
+    const matchesRating =
       filters.ratings.length === 0 ||
-      filters.ratings.some((rating) => Number(product.ratings) >= rating);
-
-    const matchSale =
+      filters.ratings.some((rating) => Number(product.rating) >= rating);
+    const matchesSale =
       filters.sale.length === 0 ||
-      filteredData.filter((product) => product.on_sale === filters.sale);
+      (filters.sale.includes(1) && product.on_sale);
 
-    return (matchesPrices, matchSale, matchRatings);
+    return matchesPrice && matchesRating && matchesSale;
   });
 };
 
