@@ -11,7 +11,7 @@ import FAQs from "./pages/FAQs";
 import CategoryHub from "./pages/CategoryHub";
 import Category from "./pages/Category";
 import Checkout from "./pages/Checkout";
-import Shop from "./pages/Shop";
+import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
@@ -23,7 +23,7 @@ function App() {
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<Home />} />
           <Route path="/profile/:user" element={<Profile />} />
-          <Route path="/search" element={<Shop />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/category/:cat_slug" element={<Category />} />
           <Route path="/categories" element={<CategoryHub />} />
           <Route path="/product/:product_id/:product_slug" element={<ProductDetails />} />
