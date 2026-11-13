@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import DefaultLayout from "./components/layout/DefaultLayout";
 import Home from "./pages/Home";
