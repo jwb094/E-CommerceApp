@@ -1,143 +1,139 @@
-import React from "react";
+import { getProductById } from "../../utils/functions";
 
-function OrderSummary(props) {
+function OrderSummary({ order }) {
+  if (!order) {
+    return (
+      <section className="w-full rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <p className="text-slate-600">Order details are not available.</p>
+      </section>
+    );
+  }
+
+  const items = order.items
+    .map((item) => ({
+      ...item,
+      product: getProductById(item.product_id),
+    }))
+    .filter((item) => item.product);
+  const paymentMethod =
+    order.payment === "credit-debit-card"
+      ? "Credit / Debit Card"
+      : order.payment === "paypal"
+        ? "PayPal"
+        : "Not selected";
+
   return (
-    <section
-      data-template="Order-Summary"
-      data-view="default"
-      className="c-Order-Summary"
-    >
-      <div className="container">
-        <div className="c-Order-summary-form | ">
-          <div class="relative flex flex-col items-center rounded-xl bg-transparent">
-            <h4 class="block text-xl font-medium text-slate-800">
-              Your Order Summary
-            </h4>
+    <section className="w-full rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h3 className="text-xl font-semibold text-slate-800">
+        Order confirmation
+      </h3>
+      <p className="mt-2 text-sm text-slate-600">
+        Order number: <span className="font-medium">{order.orderNumber}</span>
+      </p>
 
-            <div
-              class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border
-            max-w-screen-lg "
-            >
-              <table
-                id="orderTable"
-                class="w-full text-left table-auto min-w-max"
-              >
-                <thead>
-                  <tr>
-                    <th class="p-4 border-b border-slate-300 bg-slate-50">
-                      <p class="block text-sm font-normal leading-none text-slate-500">
-                        Product Name
-                      </p>
-                    </th>
-                    <th class="p-4 border-b border-slate-300 bg-slate-50">
-                      <p class="block text-sm font-normal leading-none text-slate-500">
-                        Qty
-                      </p>
-                    </th>
-                    <th class="p-4 border-b border-slate-300 bg-slate-50">
-                      <p class="block text-sm font-normal leading-none text-slate-500">
-                        Price
-                      </p>
-                    </th>
-                    <th class="p-4 border-b border-slate-300 bg-slate-50">
-                      <p class="block text-sm font-normal leading-none text-slate-500">
-                        Total
-                      </p>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="hover:bg-slate-50">
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">Wooden Chair</p>
-                    </td>
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">2</p>
-                    </td>
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">$85.00</p>
-                    </td>
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">$170.00</p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+      <div className="mt-6 grid gap-8 sm:grid-cols-2">
+        <div>
+          <h4 className="mb-3 font-medium text-slate-800">Customer</h4>
+          <dl className="space-y-2 text-sm">
+            <div>
+              <dt className="text-slate-500">Name</dt>
+              <dd className="text-slate-800">
+                {[order.customer.firstName, order.customer.lastName]
+                  .filter(Boolean)
+                  .join(" ") || "Not provided"}
+              </dd>
             </div>
-
-            <div
-              class="mt-12 relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border
-            max-w-screen-lg "
-            >
-              <table
-                id="orderTable"
-                class="w-full text-left table-auto min-w-max"
-              >
-                <thead>
-                  <tr>
-                    <th class="p-4 border-b border-slate-300 bg-slate-50">
-                      <p class="block text-sm font-normal leading-none text-slate-500">
-                        Order Total Cost 
-                      </p>
-                    </th>
-                    <th class="p-4 border-b border-slate-300 bg-slate-50">
-                      <p class="block text-sm font-normal leading-none text-slate-500">
-                       
-                      </p>
-                    </th>
-             
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="hover:bg-slate-50">
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">Total</p>
-                    </td>
-
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">$170.00</p>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-slate-50">
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">Delivery</p>
-                    </td>
-
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">$170.00</p>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-slate-50">
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">Coupons</p>
-                    </td>
-
-                    <td class="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">$170.00</p>
-                    </td>
-                  </tr>
-                </tbody>
-                 <tfoot>
-                  <tr>
-                    <td
-                    
-                      class="p-4 text-left font-bold text-slate-800 border-t border-slate-300"
-                    >
-                      Order Total:
-                    </td>
-               
-                    <td
-                      colspan="1"
-                      class="p-4 font-semibold text-slate-800 border-t border-slate-300"
-                    >
-                      $605.00
-                    </td>
-                  </tr>
-                </tfoot> 
-              </table>
+            <div>
+              <dt className="text-slate-500">Email</dt>
+              <dd className="text-slate-800">
+                {order.customer.email || "Not provided"}
+              </dd>
             </div>
-          </div>
+            <div>
+              <dt className="text-slate-500">Telephone</dt>
+              <dd className="text-slate-800">
+                {order.customer.telephone || "Not provided"}
+              </dd>
+            </div>
+          </dl>
         </div>
+
+        <div>
+          <h4 className="mb-3 font-medium text-slate-800">Delivery</h4>
+          <dl className="space-y-2 text-sm">
+            <div>
+              <dt className="text-slate-500">Address</dt>
+              <dd className="text-slate-800">
+                {[
+                  order.delivery.addressLine1,
+                  order.delivery.addressLine2,
+                  order.delivery.city,
+                  order.delivery.postcode,
+                ]
+                  .filter(Boolean)
+                  .join(", ") || "Not provided"}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Payment method</dt>
+              <dd className="text-slate-800">{paymentMethod}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div className="mt-8 border-t border-slate-200 pt-6">
+        <h4 className="mb-3 font-medium text-slate-800">Items</h4>
+        {items.length === 0 ? (
+          <p className="text-sm text-slate-600">No items in this order.</p>
+        ) : (
+          <ul className="divide-y divide-slate-200">
+            {items.map(({ product, quantity }) => (
+              <li
+                key={product.id}
+                className="flex items-center justify-between gap-4 py-3 text-sm"
+              >
+                <div className="flex min-w-0 items-center gap-4">
+                  <img
+                    src={product.media.thumbnail}
+                    alt={product.name}
+                    className="h-16 w-16 shrink-0 rounded-md bg-slate-100 object-contain"
+                  />
+                  <div>
+                    <p className="font-medium text-slate-800">{product.name}</p>
+                    <p className="text-slate-500">
+                      £{product.price.toFixed(2)} × {quantity}
+                    </p>
+                  </div>
+                </div>
+                <p className="font-medium text-slate-800">
+                  £{(product.price * quantity).toFixed(2)}
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <dl className="mt-4 ml-auto w-full max-w-xs space-y-2 text-sm">
+          <div className="flex justify-between gap-4">
+            <dt className="text-slate-600">Subtotal</dt>
+            <dd className="text-slate-800">£{order.subtotal.toFixed(2)}</dd>
+          </div>
+          <div className="flex justify-between gap-4">
+            <dt className="text-slate-600">Delivery charge</dt>
+            <dd className="text-slate-800">
+              £{order.deliveryCharge.toFixed(2)}
+            </dd>
+          </div>
+          <div className="flex justify-between gap-4">
+            <dt className="text-slate-600">Discount</dt>
+            <dd className="text-slate-800">−£{order.discount.toFixed(2)}</dd>
+          </div>
+          <div className="flex justify-between gap-4 border-t border-slate-200 pt-2 font-semibold">
+            <dt className="text-slate-900">Order total</dt>
+            <dd className="text-slate-900">£{order.total.toFixed(2)}</dd>
+          </div>
+        </dl>
       </div>
     </section>
   );
