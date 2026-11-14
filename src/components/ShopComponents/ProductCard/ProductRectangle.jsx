@@ -33,9 +33,9 @@ function ProductRectangle(props) {
         >
           <div className="c-productCard-bloc-Content | flex h-full min-h-0 flex-col md:flex-row md:gap-6">
             <div className="c-productCard-bloc-Content-Media h-40 shrink-0 md:h-full md:w-52">
-              <div className="flex h-full items-center justify-center rounded-lg bg-cyan-200 p-4">
+              <div className="h-full w-full overflow-hidden rounded-lg bg-cyan-200">
                 <img
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-cover"
                   src={props.data.media.thumbnail ?? placeholderImage}
                   alt={props.data.name}
                 />

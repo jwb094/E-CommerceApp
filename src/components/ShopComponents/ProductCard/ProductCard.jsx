@@ -33,9 +33,9 @@ function ProductCard(props) {
       >
         <div className="c-productCard-bloc-Content | flex flex-1 flex-col">
           <div className="c-productCard-bloc-Content-Media">
-            <div className="flex h-48 items-center justify-center rounded-lg bg-cyan-200 p-4">
+            <div className="h-48 w-full overflow-hidden rounded-lg bg-cyan-200">
               <img
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
                 src={props.data.media.thumbnail}
                 alt={props.data.name}
               />
