@@ -12,9 +12,6 @@ function CustomerInformation({ orderData, setOrderData, formRef }) {
       <div className="container">
         <div className="c-Customer-info-form |">
           <div className="relative flex flex-col items-center rounded-xl bg-transparent">
-            <h4 className="block text-xl font-medium text-slate-800">
-              Customer Information Info
-            </h4>
             <form ref={formRef} className="mt-8 mb-2 w-8/12 max-w-screen-lg ">
               <div className="mb-1 flex flex-col gap-6">
                 <div className="w-full">

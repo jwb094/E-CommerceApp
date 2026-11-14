@@ -10,9 +10,7 @@ function ShippingForm({ orderData, setOrderData,formRef }) {
       <div className="container">
         <div className="c-shipping-form__new_Address |">
           <div class="relative flex flex-col items-center rounded-xl bg-transparent">
-            <h4 class="block text-xl font-medium text-slate-800">
-              Shipping Info
-            </h4>
+
             <form ref={formRef} class="mt-8 mb-2 w-8/12 max-w-screen-lg ">
               <div class="mb-1 flex flex-col gap-6">
                 <div class="w-full">
@@ -78,13 +76,13 @@ function ShippingForm({ orderData, setOrderData,formRef }) {
                     required
                     class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                     placeholder="Post Code"
-                    value={orderData.delivery.postCode}
+                    value={orderData.delivery.postcode}
                     onChange={(event) =>
                       setOrderData({
                         ...orderData,
                         delivery: {
                           ...orderData.delivery,
-                          postCode: event.target.value,
+                          postcode: event.target.value,
                         },
                       })
                     }
