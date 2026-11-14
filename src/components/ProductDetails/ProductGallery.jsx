@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 function ProductGallery(props) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -33,9 +34,9 @@ function ProductGallery(props) {
           className="absolute inset-y-0 right-0 flex flex-col items-center justify-center gap-4 px-4"
         >
           {props.productsGallery.map((image, index) => (
-            <a
+            <Link
               key={index}
-              href={`#slide-${index + 1}`}
+              to={`#slide-${index + 1}`}
               aria-label={`Show image ${index + 1}`}
               aria-current={activeIndex === index ? "true" : undefined}
               onClick={() => setActiveIndex(index)}

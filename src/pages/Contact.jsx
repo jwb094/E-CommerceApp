@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import ContactUs from "../components/Contact/ContactUs";
 function Contact(props) {
   return (
@@ -48,16 +49,16 @@ function Contact(props) {
                 <div className="contact-item">
                   <h3>Email</h3>
                   <p>
-                    <a href="mailto:support@brightbuy.co.uk">
+                    <Link to="mailto:support@brightbuy.co.uk">
                       support@brightbuy.co.uk
-                    </a>
+                    </Link>
                   </p>
                 </div>
 
                 <div className="contact-item">
                   <h3>Telephone</h3>
                   <p>
-                    <a href="tel:+442012345678">020 1234 5678</a>
+                    <Link to="tel:+442012345678">020 1234 5678</Link>
                   </p>
                 </div>
               </div>
@@ -104,7 +105,7 @@ function Contact(props) {
 
               <p>
                 You may find the answer you're looking for in our&nbsp;&nbsp;
-                <a href="/faqs">Frequently Asked Questions (FAQs)</a>, where
+                <Link to="/faqs">Frequently Asked Questions (FAQs)</Link>, where
                 we've answered many of the most common questions about ordering,
                 delivery, returns, payments and account management.
               </p>

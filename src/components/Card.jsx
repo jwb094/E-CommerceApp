@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router";
 
 function Card({ category }) {
   return (
@@ -11,8 +12,8 @@ function Card({ category }) {
       </div>
 
       <div className="category-card__footer mt-auto">
-        <a
-          href={`/category/${category.slug}`}
+        <Link
+          to={`/category/${category.slug}`}
           className="category-card__link flex items-center text-sm font-semibold text-slate-800 hover:underline"
         >
           Browse {category.name} Products
@@ -31,7 +32,7 @@ function Card({ category }) {
               d="M14 5l7 7m0 0l-7 7m7-7H3"
             />
           </svg>
-        </a>
+        </Link>
       </div>
     </article>
   );

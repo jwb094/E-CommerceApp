@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 function GridItem(props) {
   const isOnSale = props.data.on_sale === true;
@@ -12,8 +13,8 @@ function GridItem(props) {
         props.classes,
       ].join(" ")}
     >
-      <a
-        href={`/product/${props.data.id}/${props.data.slug}`}
+      <Link
+        to={`/product/${props.data.id}/${props.data.slug}`}
         className="box-grid__link block h-full w-full"
         aria-label={props.data.name}
       >
@@ -37,7 +38,7 @@ function GridItem(props) {
             )}
           </div>
         </div>
-      </a>
+      </Link>
     </article>
   );
 }
