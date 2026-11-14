@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import BoxGrid from "../components/ShopComponents/BoxGrid/BoxGrid";
 import Newsletter from "../components/Contact/Newsletter";
 import Banner from "../components/Banner";
@@ -30,7 +31,7 @@ function Home(props) {
       <Banner />
       <div className="mx-auto lg:w-7xl px-4 py-16 sm:px-6 lg:px-0">
         {/* <div className="container"> */}
-        <div className="flex flex-col md:flex-row md:justify-between md:gap-4 py-24">
+        <div className="flex flex-col gap-y-8 py-24 md:flex-row md:justify-between md:gap-4">
           {/* Best Sellers */}
           <BoxGrid data={bestSellers} />
 
@@ -51,11 +52,21 @@ function Home(props) {
         </section>
 
         {/* Featured Categories  */}
-        <div className="flex flex-col md:flex-row | gap-x-6 py-24">
-          {featuredCategories.map((featuredCategory) => (
-            <Card category={featuredCategory} key={featuredCategory.id} />
-          ))}
-        </div>
+        <section className="featured-categories py-24">
+          <h2 className="featured-categories__title mb-8 text-3xl font-bold">
+            <Link
+              to="/categories"
+              className="transition-colors hover:text-slate-600"
+            >
+              Featured Categories
+            </Link>
+          </h2>
+          <div className="category-cards grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredCategories.map((featuredCategory) => (
+              <Card category={featuredCategory} key={featuredCategory.id} />
+            ))}
+          </div>
+        </section>
 
         {/*  Customer Review */}
         {/* <div className="flex flex-col md:flex-row | gap-x-6 py-24">
