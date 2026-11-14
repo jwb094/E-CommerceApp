@@ -65,7 +65,7 @@ function ProductDetails(props) {
   const { state:basketState, dispatch:basketDispatch } = useBasketContext();
   // Check if the current product is already in the basket.
   const isInBasket = basketState.items.some((item) => item.product_id === product.id);
-  
+
   function handleAddToBasket(product) {
  // Check if the product is already in the basket before adding it
     if (!isInBasket) {
@@ -209,11 +209,7 @@ function ProductDetails(props) {
                   key={product.id}
                   className="related_product_link"
                 >
-                  {/* <a
-                  href={`/product/${product.id}/${product.slug}`}
-                  key={product.id}
-                  className="related_product_link"
-                > */}
+
                   <div key={product.id} className="related_product_card">
                     <img
                       src={product.media.thumbnail ?? placeholderImage}
@@ -223,7 +219,7 @@ function ProductDetails(props) {
                     <h3 className="text-lg font-semibold">{product.name}</h3>
                     <p className="text-gray-600">£{product.price.toFixed(2)}</p>
                   </div>
-                  {/* </a> */}
+
                 </Link>
               ))}
             </div>

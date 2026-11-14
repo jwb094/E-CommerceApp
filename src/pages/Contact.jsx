@@ -3,12 +3,7 @@ import ContactUs from "../components/Contact/ContactUs";
 function Contact(props) {
   return (
     <>
-      {/* <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-12">
 
-        <div class="container mx-auto px-4">
-          <h1>Contact Us</h1>
-        </div>
-      </div> */}
       <div className="mx-auto max-w-7xl sm:px-4 py-16 md:px-24 lg:px-24">
         <div className="container mx-auto px-0 ">
           <section className="contact-us-content | mt-24">

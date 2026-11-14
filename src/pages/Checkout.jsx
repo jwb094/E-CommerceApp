@@ -163,16 +163,7 @@ function Checkout() {
         {page === 4 && <OrderSummary order={order} />}
       </div>
       <div className="mt-8 flex justify-center gap-3">
-        {/* <button
-          type="button"
-          disabled={page === 0}
-          onClick={() => {
-            setPage((currPage) => currPage - 1);
-          }}
-          className="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {page > 0 ? `Previous: ${formTitles[page - 1]}` : "Previous"}
-        </button> */}
+
         {page !== 4 && (
           <button
             type="button"
@@ -184,18 +175,7 @@ function Checkout() {
           </button>
         )}
 
-        {/* <button
-          type="button"
-          disabled={page === formTitles.length - 1}
-          onClick={handleNext}
-          className="rounded-md bg-slate-800 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800"
-        >
-          {page === 3
-            ? "Place Order"
-            : page < formTitles.length - 1
-              ? `Next: ${formTitles[page + 1]}`
-              : "Next"}
-        </button> */}
+
         <button
           type="button"
           onClick={page === 4 ? handleContinueShopping : handleNext}
