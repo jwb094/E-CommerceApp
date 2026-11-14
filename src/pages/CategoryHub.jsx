@@ -14,9 +14,9 @@ function CategoryHub(props) {
 
             {/* <h1 className="">Category Hub</h1> */}
           </section>
-          <div className="flex flex-col md:flex-row flex-wrap justify-evenly">
+          <div className="category-cards grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {getAllCategories.map((category) => (
-              <Card category={category} key={category.id}/>
+              <Card category={category} key={category.id} />
               // <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg max-w-72 p-6">
               //   <div class="flex flex-col items-center mb-4 gap-y-6">
               //     <h5 class=" text-slate-800 text-xl font-semibold">
