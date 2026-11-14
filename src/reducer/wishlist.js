@@ -6,6 +6,7 @@ export function wishlistReducer(state = initialState, action) {
   switch (action.type) {
     // Add cases for wishlist actions
     case "ADD_TO_WISHLIST":
+      // A product ID can appear only once in the wishlist.
       return {
         ...state,
         wishlist: state.wishlist.includes(action.payload.id)

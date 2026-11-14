@@ -5,6 +5,7 @@ export const initialBasketState = {
 export function basketReducer(state = initialBasketState, action) {
   switch (action.type) {
     case "ADD_TO_BASKET":
+      // Store basket entries by product ID; quantity updates are handled separately.
       return {
         ...state,
         items: [...state.items, action.payload],
@@ -22,6 +23,7 @@ export function basketReducer(state = initialBasketState, action) {
         ),
       };
     case "DECREASE_QUANTITY":
+      // Keep quantities at one or higher; removal is an explicit action.
       return {
         ...state,
         items: state.items.map((item) =>

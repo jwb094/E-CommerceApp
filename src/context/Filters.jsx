@@ -19,11 +19,15 @@ export function FiltersProvider({ children }) {
     setFilters(initialFilters);
   };
   const handleCheckboxChange = (category, value) => {
+    // Use the previous state so rapid checkbox changes are applied in order.
     setFilters((previous) => {
+      // Check whether this option is already selected in the requested filter group.
       const exists = previous[category].includes(value);
 
       return {
+        // Copy the state first so selections in the other groups remain unchanged.
         ...previous,
+        // Remove a checked option, or append an unchecked one to toggle it on.
         [category]: exists
           ? previous[category].filter((item) => item !== value)
           : [...previous[category], value],

@@ -40,6 +40,7 @@ function Category(props) {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(9);
 
+  // Derive the visible category results from the shared filters and selected sort order.
   const paginatedDataSortedAndFiltered = useMemo(() => {
     return sortProducts(
       filteredProducts(categoryPaginationData, filters),
