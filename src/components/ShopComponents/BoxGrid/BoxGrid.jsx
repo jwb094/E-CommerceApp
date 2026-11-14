@@ -1,12 +1,12 @@
 import React from "react";
 import GridItem from "./GridItem";
-import "../../../assets/styles/boxGrid.scss"
+import "../../../assets/styles/boxGrid.scss";
 
 const cornerClasses = [
-  "rounded-tl-4xl",
-  "rounded-tr-4xl",
-  "rounded-bl-4xl",
-  "rounded-br-4xl",
+  "rounded-tl-[2.5rem]",
+  "rounded-tr-[2.5rem]",
+  "rounded-bl-[2.5rem]",
+  "rounded-br-[2.5rem]",
 ];
 
 function BoxGrid(props) {
@@ -15,44 +15,18 @@ function BoxGrid(props) {
       key={item.id}
       data={item}
       gridNumber={index}
-      classes={cornerClasses[index] ?? ""}
+      classes={cornerClasses[index] ?? "rounded-[2rem]"}
     />
   ));
 
   return (
-    <section  data-template="box-Grid" data-view="default"  class="container">
-      <div class="grid grid-cols-2 gap-4 md:gap-x-6 md:gap-y-6">
-
+    <section
+      data-template="box-Grid"
+      data-view="default"
+      className="box-grid container mx-auto w-full"
+    >
+      <div className="box-grid__list group grid grid-cols-2 gap-4 md:gap-6">
         {boxitems}
-        {/* <div class="grid-item grid-item-1 | min-h-56 rounded-tl-4xl bg-red-400 md:h-72 md:w-64">
-          <a href="#">
-            <div class="p-6">
-              <img src="https://placehold.co/300x350" alt="" />
-            </div>
-          </a>
-        </div>
-
-        <div class="grid-item grid-item-2 min-h-56 rounded-tr-4xl bg-red-400 md:h-72 md:w-64">
-          <a href="#">
-            <div class="p-6">
-              <img src="https://placehold.co/300x350" alt="" />
-            </div>
-          </a>
-        </div>
-        <div class="grid-item grid-item-3 | min-h-56 rounded-bl-4xl bg-red-400 md:h-72 md:w-64">
-          <a href="#">
-            <div class="p-6">
-              <img src="https://placehold.co/300x350" alt="" />
-            </div>
-          </a>
-        </div>
-        <div class="grid-item grid-item-4 | min-h-56 rounded-br-4xl bg-red-400 md:h-72 md:w-64">
-          <a href="#">
-            <div class="p-6">
-              <img src="https://placehold.co/300x350" alt="" />
-            </div>
-          </a>
-        </div> */}
       </div>
     </section>
   );
